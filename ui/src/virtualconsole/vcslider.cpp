@@ -84,7 +84,7 @@ const QString submasterStyleSheet =
 
 VCSlider::VCSlider(QWidget *parent, Doc *doc)
     : VCWidget(parent, doc)
-    , m_valueDisplayStyle(ExactValue)
+    , m_valueDisplayStyle(PercentageValue)
     , m_catchValues(false)
     , m_levelLowLimit(0)
     , m_levelHighLimit(UCHAR_MAX)
@@ -230,7 +230,7 @@ void VCSlider::setID(quint32 id)
     VCWidget::setID(id);
 
     if (caption().isEmpty())
-        setCaption(tr("Slider %1").arg(id));
+        setCaption(tr("%1").arg(id));
 }
 
 /*****************************************************************************
@@ -397,7 +397,7 @@ VCSlider::ValueDisplayStyle VCSlider::stringToValueDisplayStyle(QString style)
     else if (style == KXMLQLCVCSliderValueDisplayStylePercentage)
         return PercentageValue;
     else
-        return ExactValue;
+        return PercentageValue;
 }
 
 void VCSlider::setValueDisplayStyle(VCSlider::ValueDisplayStyle style)

@@ -860,7 +860,7 @@ void VirtualConsole::slotAddSliderMatrix()
     connectWidgetToParent(frame, parent);
 
     // Resize the parent frame to fit the sliders nicely
-    frame->resize(QSize((count * width) + 20, height + 20));
+    frame->resize(QSize((count * width) + 20, height + 50));
     frame->setAllowResize(false);
 
     for (int i = 0; i < count; i++)
@@ -869,7 +869,7 @@ void VirtualConsole::slotAddSliderMatrix()
         Q_ASSERT(slider != NULL);
         addWidgetInMap(slider);
         connectWidgetToParent(slider, frame);
-        slider->move(QPoint(10 + (width * i), 10));
+        slider->move(QPoint(10 + (width * i), 20));
         slider->resize(QSize(width, height));
         slider->show();
     }
